@@ -12,6 +12,7 @@ const apiProxy = createProxyMiddleware({
 });
 
 export default function (req, res) {
+  console.log('Req address => ', req.socket.remoteAddress);
   return apiProxy(req, res);
 }
 
