@@ -9,6 +9,12 @@ const apiProxy = createProxyMiddleware({
   pathRewrite: {
     '^/api': '',
   },
+  onProxyReq(proxyReq) {
+    proxyReq.headers['Access-Control-Allow-Origin'] = '*'; // add new header to response
+  },
+  onProxyRes(proxyRes) {
+    proxyRes.headers['Access-Control-Allow-Origin'] = '*'; // add new header to response
+  },
 });
 
 export default function (req, res) {
